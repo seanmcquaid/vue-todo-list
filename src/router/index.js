@@ -5,12 +5,12 @@ import EditTodo from '../views/EditTodo.vue';
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
   },
   {
     path: '/edit/:id',
-    name: 'EditTodo',
+    name: 'edit',
     component: EditTodo,
   },
 ];

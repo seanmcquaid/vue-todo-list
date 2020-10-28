@@ -1,9 +1,18 @@
 <template>
-  <div></div>
+  <div>Hello</div>
+  {{ todoId }}
 </template>
 
 <script>
-export default {};
+import { mapGetters } from 'vuex';
+export default {
+  computed: {
+    ...mapGetters({ todoInfo: 'getTodoById' }),
+    todoId() {
+      return this.$route.params.id;
+    },
+  },
+};
 </script>
 
 <style></style>

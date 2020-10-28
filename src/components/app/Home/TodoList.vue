@@ -9,6 +9,9 @@
         {{ todo.text }}
       </span>
       <Button @click="deleteTodo(index)">Delete</Button>
+      <router-link :to="{ name: 'edit', params: { id: index } }">
+        Edit
+      </router-link>
     </li>
   </ul>
 </template>
