@@ -5,8 +5,8 @@
 <script>
 export default {
   props: {
-    onClick: { type: Function },
-    type: { type: String },
+    onClick: { type: Function, required: false },
+    type: { type: String, required: false },
   },
 };
 </script>

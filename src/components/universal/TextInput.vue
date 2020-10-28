@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     onChange($event) {
-      this.$emit('update', {
+      this.$emit('text-input-on-change', {
         value: $event.target.value,
         name: this.name,
       });
