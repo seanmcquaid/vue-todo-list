@@ -42,8 +42,9 @@ export default {
           text: this.inputText,
           isCompleted: false,
         },
-        id: this.todoId,
+        index: Number.parseInt(this.todoId),
       });
+      this.$router.push({ name: 'home' });
     },
   },
   mounted() {

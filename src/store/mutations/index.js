@@ -15,6 +15,7 @@ const mutations = {
     state.todos[payload.id].isCompleted = !state.todos[payload.id].isCompleted;
   },
   editTodo(state, payload) {
+    console.log(payload);
     state.todos[payload.id] = payload.updatedTodo;
   },
 };
