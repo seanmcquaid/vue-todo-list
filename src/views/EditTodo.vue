@@ -5,16 +5,16 @@
       name="inputText"
       :value="inputText"
       @text-input-on-change="textInputOnChange"
-      label="Add Todo"
+      label="Edit Todo"
     />
-    <Button :type="'submit'">Add To Do</Button>
+    <Button :type="'submit'">Edit Todo</Button>
   </form>
 </template>
 
 <script>
 import Button from '../components/universal/Button.vue';
 import TextInput from '../components/universal/TextInput.vue';
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
   components: {
     Button,
@@ -26,18 +26,28 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ todoInfo: 'getTodoById' }),
+    ...mapGetters(['getTodoById']),
     todoId() {
       return this.$route.params.id;
     },
   },
   methods: {
+    ...mapActions(['editTodo']),
     textInputOnChange(payload) {
       this[payload.name] = payload.value;
     },
+    submitEditedTodo() {
+      this.editTodo({
+        todo: {
+          text: this.inputText,
+          isCompleted: false,
+        },
+        id: this.todoId,
+      });
+    },
   },
   mounted() {
-    this.inputText = this.todoInfo(Number.parseInt(this.todoId)).text;
+    this.inputText = this.getTodoById(Number.parseInt(this.todoId))?.text ?? '';
   },
 };
 </script>

@@ -14,6 +14,9 @@ const mutations = {
   completeTodo(state, payload) {
     state.todos[payload.id].isCompleted = !state.todos[payload.id].isCompleted;
   },
+  editTodo(state, payload) {
+    state.todos[payload.id] = payload.updatedTodo;
+  },
 };
 
 export default mutations;

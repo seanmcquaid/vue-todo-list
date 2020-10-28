@@ -8,6 +8,9 @@ const actions = {
   completeTodo({ commit }, index) {
     commit('completeTodo', { id: index });
   },
+  editTodo({ commit }, { todo, index }) {
+    commit('editTodo', { updatedTodo: todo, id: index });
+  },
 };
 
 export default actions;
