@@ -7,12 +7,14 @@
         @text-input-on-change="textInputOnChange"
         label="Add Todo"
       />
-      <Button type="'submit'">Add To Do</Button>
+      <Button :type="'submit'">Add To Do</Button>
     </form>
   </div>
+  <TodoList />
 </template>
 
 <script>
+import TodoList from '../components/app/Home/TodoList.vue';
 import TextInput from '../components/universal/TextInput.vue';
 import Button from '@/components/universal/Button.vue';
 import { mapActions } from 'vuex';
@@ -22,6 +24,7 @@ export default {
   components: {
     Button,
     TextInput,
+    TodoList,
   },
   data() {
     return {
@@ -32,6 +35,7 @@ export default {
     ...mapActions(['addTodo']),
     textInputOnChange(payload) {
       this[payload.name] = payload.value;
+      console.log(this.$store.state);
     },
     submitNewTodo() {
       this.addTodo({

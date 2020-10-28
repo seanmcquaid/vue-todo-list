@@ -1,14 +1,9 @@
 <template>
-  <button type="type" @click="onClick"><slot /></button>
+  <button><slot /></button>
 </template>
 
 <script>
-export default {
-  props: {
-    onClick: { type: Function, required: false },
-    type: { type: String, required: false },
-  },
-};
+export default {};
 </script>
 
 <style scoped>

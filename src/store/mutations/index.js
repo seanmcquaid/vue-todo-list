@@ -1,5 +1,12 @@
 const mutations = {
   addTodo(state, payload) {
+    console.log([
+      ...state.todos,
+      {
+        text: payload.text,
+        isCompleted: false,
+      },
+    ]);
     state.todos = [
       ...state.todos,
       {
