@@ -35,7 +35,6 @@ export default {
     ...mapActions(['addTodo']),
     textInputOnChange(payload) {
       this[payload.name] = payload.value;
-      console.log(this.$store.state);
     },
     submitNewTodo() {
       this.addTodo({

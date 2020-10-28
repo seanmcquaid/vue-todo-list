@@ -4,19 +4,23 @@
       v-for="(todo, index) in todos"
       :key="index"
       :class="{ isCompleted: todo.isCompleted }"
-      @click="completeTodo(index)"
     >
-      <span>
+      <span @click="completeTodo(index)">
         {{ todo.text }}
       </span>
+      <Button @click="deleteTodo(index)">Delete</Button>
     </li>
   </ul>
 </template>
 
 <script>
+import Button from '../../universal/Button.vue';
 import { mapState, mapActions } from 'vuex';
 
 export default {
+  components: {
+    Button,
+  },
   computed: mapState({
     todos: state => state.todos,
   }),
@@ -24,4 +28,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.isCompleted {
+  text-decoration: line-through;
+}
+</style>

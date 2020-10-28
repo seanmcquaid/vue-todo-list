@@ -3,10 +3,10 @@ const actions = {
     commit('addTodo', todo);
   },
   deleteTodo({ commit }, index) {
-    commit('deleteTodo', index);
+    commit('deleteTodo', { id: index });
   },
   completeTodo({ commit }, index) {
-    commit('completeTodo', index);
+    commit('completeTodo', { id: index });
   },
 };
 
