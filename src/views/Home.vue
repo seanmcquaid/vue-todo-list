@@ -1,17 +1,24 @@
 <template>
   <div class="home">
+    <TextInput
+      name="inputText"
+      :value="inputText"
+      @update="update"
+      label="Add Todo"
+    />
     <Button :type="'button'" :onClick="click">Add To Do</Button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import TextInput from '../components/universal/TextInput.vue';
 import Button from '@/components/universal/Button.vue';
 
 export default {
   name: 'Home',
   components: {
     Button,
+    TextInput,
   },
   data() {
     return {
@@ -20,7 +27,10 @@ export default {
   },
   methods: {
     click() {
-      console.log('click');
+      console.log(this.inputText);
+    },
+    update(payload) {
+      this[payload.name] = payload.value;
     },
   },
 };
