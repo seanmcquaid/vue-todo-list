@@ -4,7 +4,7 @@ import mutations from '../../src/store/mutations';
 describe('mutations', () => {
   // eslint-disable-next-line no-undef
   test('addTodo', () => {
-    let state = {
+    const state = {
       todos: [],
     };
     const payload = {
@@ -17,9 +17,54 @@ describe('mutations', () => {
     });
   });
 
-  test('deleteTodo', () => {});
+  test('deleteTodo', () => {
+    const state = {
+      todos: [{ isCompleted: false, text: 'new todo' }],
+    };
+    const payload = {
+      id: 0,
+    };
 
-  test('completeTodo', () => {});
+    mutations.deleteTodo(state, payload);
+    expect(state).toEqual({
+      todos: [],
+    });
+  });
 
-  test('editTodo', () => {});
+  test('completeTodo', () => {
+    const state = {
+      todos: [{ isCompleted: false, text: 'new todo' }],
+    };
+    const payload = {
+      id: 0,
+    };
+
+    mutations.completeTodo(state, payload);
+    expect(state).toEqual({
+      todos: [{ isCompleted: true, text: 'new todo' }],
+    });
+  });
+
+  test('editTodo', () => {
+    const state = {
+      todos: [{ isCompleted: false, text: 'new todo' }],
+    };
+    const payload = {
+      id: 0,
+      updatedTodo: {
+        text: 'updated todo',
+        isCompleted: false,
+      },
+    };
+
+    mutations.editTodo(state, payload);
+    expect(state).toEqual({
+      todos: [
+        {
+          text: 'updated todo',
+          isCompleted: false,
+        },
+      ],
+    });
+  });
 });
