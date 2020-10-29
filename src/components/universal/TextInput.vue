@@ -1,7 +1,13 @@
 <template>
   <div>
     <label :for="label">{{ label }}</label>
-    <input type="text" id="name" :value="value" @input="onChange" />
+    <input
+      type="text"
+      id="name"
+      :value="value"
+      @input="onChange"
+      :data-testid="name"
+    />
   </div>
 </template>
 
