@@ -8,7 +8,7 @@
         @text-input-on-change="textInputOnChange"
         label="Add Todo"
       />
-      <Button :type="'submit'">Add Todo</Button>
+      <Button :type="'submit'">Add</Button>
     </form>
     <TodoList />
   </div>
