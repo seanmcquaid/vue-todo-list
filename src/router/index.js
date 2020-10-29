@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import EditTodo from '../views/EditTodo.vue';
 
-const routes = [
+export const routes = [
   {
     path: '/',
     name: 'home',
