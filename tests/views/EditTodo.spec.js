@@ -1,6 +1,7 @@
-import { render, fireEvent } from '@testing-library/vue';
-import App from '../../src/App.vue';
-import EditTodo from '../../src/views/EditTodo.vue';
+import { fireEvent, screen } from '@testing-library/vue';
+import Home from '../../src/views/Home.vue';
+import renderWithStoreAndRouter from '../../testUtils/renderWithStoreAndRouter';
+import '@testing-library/jest-dom/extend-expect';
 
 describe('EditTodo', () => {
   test('should ', () => {});

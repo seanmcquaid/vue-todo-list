@@ -29,7 +29,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['getTodoById']),
+    ...mapGetters({
+      getTodoById: 'getTodoById',
+    }),
     todoId() {
       return this.$route.params.id;
     },
@@ -51,6 +53,7 @@ export default {
     },
   },
   mounted() {
+    console.log(this.$store.getters);
     this.inputText = this.getTodoById(Number.parseInt(this.todoId))?.text ?? '';
   },
 };

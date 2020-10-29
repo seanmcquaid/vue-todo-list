@@ -23,10 +23,6 @@ describe('Home', () => {
       todos: [],
     });
 
-    renderWithStore(Home, {
-      todos: [],
-    });
-
     fireEvent.update(screen.getByTestId('inputText'), 'Update');
     expect(screen.getByTestId('inputText').value).toEqual('Update');
 
