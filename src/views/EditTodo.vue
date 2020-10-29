@@ -1,17 +1,19 @@
 <template>
-  <div>Hello</div>
-  <form @submit.prevent="submitEditedTodo">
-    <TextInput
-      name="inputText"
-      :value="inputText"
-      @text-input-on-change="textInputOnChange"
-      label="Edit Todo"
-    />
-    <Button :type="'submit'">Edit Todo</Button>
-  </form>
+  <div class="editTodo">
+    <H1>Edit Todo</H1>
+    <form @submit.prevent="submitEditedTodo" class="submitEditedTodoForm">
+      <TextInput
+        name="inputText"
+        :value="inputText"
+        @text-input-on-change="textInputOnChange"
+      />
+      <Button :type="'submit'">Submit Edit</Button>
+    </form>
+  </div>
 </template>
 
 <script>
+import H1 from '../components/universal/Typography/H1.vue';
 import Button from '../components/universal/Button.vue';
 import TextInput from '../components/universal/TextInput.vue';
 import { mapActions, mapGetters } from 'vuex';
@@ -19,6 +21,7 @@ export default {
   components: {
     Button,
     TextInput,
+    H1,
   },
   data() {
     return {
@@ -53,4 +56,23 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.editTodo {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submitEditedTodoForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ol>
     <li
       v-for="(todo, index) in todos"
       :key="index"
@@ -8,12 +8,12 @@
       <span @click="completeTodo(index)">
         {{ todo.text }}
       </span>
-      <Button @click="deleteTodo(index)">Delete</Button>
-      <router-link :to="{ name: 'edit', params: { id: index } }">
+      <router-link :to="{ name: 'edit', params: { id: index } }" class="link">
         Edit
       </router-link>
+      <Button @click="deleteTodo(index)">Delete</Button>
     </li>
-  </ul>
+  </ol>
 </template>
 
 <script>
@@ -34,5 +34,14 @@ export default {
 <style scoped>
 .isCompleted {
   text-decoration: line-through;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  text-decoration: underline;
 }
 </style>

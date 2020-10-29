@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <form @submit.prevent="submitNewTodo">
+    <H1>Simple Todo List App</H1>
+    <form @submit.prevent="submitNewTodo" class="submitNewTodoForm">
       <TextInput
         name="inputText"
         :value="inputText"
@@ -9,11 +10,12 @@
       />
       <Button :type="'submit'">Add Todo</Button>
     </form>
+    <TodoList />
   </div>
-  <TodoList />
 </template>
 
 <script>
+import H1 from '../components/universal/Typography/H1.vue';
 import TodoList from '../components/app/Home/TodoList.vue';
 import TextInput from '../components/universal/TextInput.vue';
 import Button from '@/components/universal/Button.vue';
@@ -25,6 +27,7 @@ export default {
     Button,
     TextInput,
     TodoList,
+    H1,
   },
   data() {
     return {
@@ -40,9 +43,29 @@ export default {
       this.addTodo({
         text: this.inputText,
       });
+      this.inputText = '';
     },
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.home {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submitNewTodoForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+</style>

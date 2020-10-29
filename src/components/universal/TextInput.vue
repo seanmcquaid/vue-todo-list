@@ -30,4 +30,18 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 2px solid black;
+  outline: none;
+}
+</style>
